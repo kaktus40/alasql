@@ -1,11 +1,10 @@
-l[![bitHound Score](https://www.bithound.io/github/agershun/alasql/badges/score.svg?123)](https://www.bithound.io/github/agershun/alasql)
 [![Build status](https://api.travis-ci.org/agershun/alasql.svg)](https://travis-ci.org/agershun/alasql?123)
 [![NPM downloads](http://img.shields.io/npm/dm/alasql.svg?style=flat&label=npm%20downloads)](https://npmjs.org/package/alasql?)
 [![ghit.me](https://ghit.me/badge.svg?repo=agershun/alasql)](https://ghit.me/repo/agershun/alasql)
-[![Inline docs](http://inch-ci.org/github/agershun/alasql.svg?branch=develop)](http://inch-ci.org/github/agershun/alasql)
-![Stars](https://img.shields.io/github/stars/agershun/alasql.svg?label=Github%20%E2%98%85&a)
 ![Release](https://img.shields.io/github/release/agershun/alasql.svg?label=Last%20release&a)
-![NPM version](https://img.shields.io/npm/l/alasql.svg?)
+![Stars](https://img.shields.io/github/stars/agershun/alasql.svg?label=Github%20%E2%98%85&a)
+[![Coverage]( https://img.shields.io/codecov/c/github/agershun/alasql/develop.svg)](https://rawgit.com/agershun/alasql/develop/test/coverage/lcov-report/dist/alasql.fs.js.html)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/agershun/alasql.svg)](http://isitmaintained.com/project/agershun/alasql "Average time to resolve an issue")
 
 _AlaSQL is an open source project and we appreciate any and all contributions we can get. Please help out._
 
@@ -102,8 +101,8 @@ jsFiddle with [example A)](http://jsfiddle.net/hguw3LLk/) and [example B)](http:
 
 ```bash
 npm install --save alasql      # node
-meteor add agershun:alasql     # meteor
 bower install --save alasql    # bower
+import alasql from 'alasql';   # meteor
 npm install -g alasql          # command line
 ```
 
@@ -143,10 +142,15 @@ When you feel you got the grip you can check out the wiki section about [data ma
 **All contributions are much welcome and greatly appreciated(!)** -
 The project has never received any funding and is based on unpaid voluntary work: [We really (really) love pull requests](https://github.com/agershun/alasql/blob/develop/CONTRIBUTING.md)
 
+AlaSQL project is very young and still in active development phase, therefore it <s>may</s> have [bugs](https://github.com/agershun/alasql/labels/%21%20Bug). 
+Please, submit any bugs and suggestions [as an issue](https://github.com/agershun/alasql/issues/new). 
 
-AlaSQL project is very young and still in active development phase, therefore it <s>may</s> have [bugs](https://github.com/agershun/alasql/labels/%21%20Bug). Please, submit any bugs and suggestions [as an issue](https://github.com/agershun/alasql/issues/new). AlaSQL uses [Semantic Versioning](http://semver.org/) so please note that major version is zero (0.y.z) and the API can not be considered 100% stable. Consider this before using the library in production. 
+[![Known bugs](https://img.shields.io/github/issues-raw/agershun/alasql/!%20bug.svg?label=Known Bugs&maxAge=2592000)](https://github.com/agershun/alasql/issues?q=is%3Aissue+is%3Aopen+label%3A%22%21+Bug%22)
 
-Please checkout the [limitations of the library](https://github.com/agershun/alasql#limitations)
+
+AlaSQL uses [Semantic Versioning](http://semver.org/) so please note that major version is zero (0.y.z) and the API can not be considered 100% stable. Consider this before using the library in production and please checkout the [limitations of the library](https://github.com/agershun/alasql#limitations)
+
+
 
 
 ## Performance
@@ -512,6 +516,8 @@ Here's a list of modules that alasql requires
 * cpexcel
 * path
 * es6-promise
+* net
+* tls
 
 #### Webpack
 
@@ -523,7 +529,7 @@ var IgnorePlugin =  require("webpack").IgnorePlugin;
 module.exports = {
   ...
   //Will ignore the modules fs, path, xlsx, xls
-  plugins:[new IgnorePlugin(/(^fs$|xlsx|xls|^path$)/)]
+  plugins:[new IgnorePlugin(/(^fs$|xlsx|xls ... |^path$)/)]
 };
 ```
 
@@ -537,7 +543,7 @@ Example (using excluding)
 var browserify = require("browserify");
 var b = browserify("./main.js").bundle();
 //Will ignore the modules fs, path, xlsx, xls
-["fs","path","xlsx","xls"].map(ignore => b.ignore(ignore));
+["fs","path","xlsx",  ... , "xls"].map(ignore => b.ignore(ignore));
 ```
 
 
@@ -650,4 +656,3 @@ and other people for useful tools, which make our work much easier.
 
 <a href="http://alasql.org"><img src="https://cloud.githubusercontent.com/assets/1063454/14003946/d6e5c076-f156-11e5-8238-e62d2a8d20dc.png" align="right" alt="AlaSQL logo"/></a>
 © 2014-2016, Andrey Gershun (agershun@gmail.com) & M. Rangel Wulff (m@rawu.dk)
-

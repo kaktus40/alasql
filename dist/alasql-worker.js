@@ -1,7 +1,7 @@
-//! AlaSQL v0.2.7-updateTypeScriptDefinition-1338 | © 2014-2016 Andrey Gershun & Mathias Rangel Wulff | License: MIT 
+//! AlaSQL v0.3.0 | © 2014-2016 Andrey Gershun & Mathias Rangel Wulff | License: MIT 
 /*
 @module alasql
-@version 0.2.7-updateTypeScriptDefinition-1338
+@version 0.3.0
 
 AlaSQL - JavaScript SQL database
 © 2014-2016	Andrey Gershun & Mathias Rangel Wulff
@@ -155,9 +155,18 @@ if(typeof Promise !== "undefined"){
 
 
 
+alasql = alasql||false;
 
+if(!alasql){
+	throw new Error('alasql was not found');
+}
 
-if(typeof location !== "undefined" && location.reload && !(typeof process !== "undefined" && process.browser) && !(typeof require === "function" && typeof require.specified === "function")) {
+alasql.worker = function(){
+	throw new Error('Can find webworker in this enviroment');
+
+}
+
+if(typeof(Worker) !== "undefined") {
 
 	alasql.worker = function(path, paths, cb) {
 	//	var path;
@@ -199,7 +208,7 @@ if(typeof location !== "undefined" && location.reload && !(typeof process !== "u
 
 			alasql.webworker.onmessage = function(event) {
 				var id = event.data.id;
-	//			console.log('onmessage',alasql.buffer,id);
+
 				alasql.buffer[id](event.data.data);
 				delete alasql.buffer[id];
 			};
