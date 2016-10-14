@@ -364,9 +364,9 @@ yy.Op.prototype.toJS = function(context,tableid,defcols) {
 	if(this.op === 'IS') {
 		s = 	''
 				+ '('
-				+	'(typeof ' + leftJS()  + "==='undefined')"
+				+	'(' + leftJS()  + "==null)"	// Cant be ===
 				+	" === "
-				+	'(typeof ' + rightJS() + "==='undefined')"
+				+	'(' + rightJS() + "==null)"	// Cant be ===
 				+ ')';
 	}
 
@@ -585,7 +585,7 @@ yy.Op.prototype.toJS = function(context,tableid,defcols) {
 	}
 	else {
 		return '(' + declareRefs + ', '
-			+ 'y.some(function(e){return e === void 0}) ? void 0 : ' + expr + ')' 
+			+ 'y.some(function(e){return e == null}) ? void 0 : ' + expr + ')' 
 	}
 }
 
@@ -634,6 +634,21 @@ yy.StringValue.prototype.toJS = function() {
 //	return "'"+doubleqq(this.value)+"'";
 	return "'"+escapeq(this.value)+"'";
 
+}
+
+yy.DomainValueValue = function (params) { return yy.extend(this, params); }
+yy.DomainValueValue.prototype.toString = function() {
+	return 'VALUE'
+}
+
+yy.DomainValueValue.prototype.toType = function() {
+	return 'object';
+}
+
+yy.DomainValueValue.prototype.toJS = function(context, tableid, defcols) {
+//	console.log("'"+doubleqq(this.value)+"'");
+//	return "'"+doubleqq(this.value)+"'";
+	return context;
 }
 
 yy.ArrayValue = function (params) { return yy.extend(this, params); }
