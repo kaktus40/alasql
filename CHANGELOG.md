@@ -1,9 +1,25 @@
 # Changelog
 
 
-_0.4.1 "Sayhut" (xx.06.2017)_
+_0.4.3 "Hajjah" (xx.08.2017)_
 
 * ...
+
+## 0.4.2 "Baraqish" (xx.08.2017)
+
+* Added: SQL function LTRIM
+* Added: SQL function RTRIM
+* Better: Remove implicit any in type script definitioni
+* Better: Out-of-the-box Webpack and Browserify compatibility without hacks
+* Fix: Use created database id on foreign key check as default database
+
+ 
+## 0.4.1 "Sayhut" (23.07.2017)
+
+* Better: Performace on `distinct` selects 
+* Better: Hashing for cashed SQLs 
+* Fix: Case insensetive selects from EXCEL
+* Fix: Select from empty EXCEL
 
 
 #0.4.0 "Sanaa" (09.05.2017)
